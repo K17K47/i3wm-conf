@@ -2,10 +2,9 @@
 
 USERNAME=$(whoami)
 
-find ./conf/ -type f | while:
+find ./conf/ -type f | while read FILENAME
 do
-   read FILENAME
-   sed 's/<username>/$USERNAME/g' $FILENAME > $FILENAME
+   sed "s/<username>/$USERNAME/g" $FILENAME > "$FILENAME"
 done
 
 
